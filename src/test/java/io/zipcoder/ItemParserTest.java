@@ -12,6 +12,8 @@ public class ItemParserTest {
 
     private String rawSingleItem =    "naMe:Milk;price:3.23;type:Food;expiration:1/25/2016##";
 
+    private String rawSingleItemIrregularSeperatorSample = "naMe:MiLK;price:3.23;type:Food^expiration:1/11/2016##";
+
     private String rawBrokenSingleItem =    "naMe:Milk;price:3.23;type:Food;expiration:1/25/2016##";
 
     private String rawMultipleItems = "naMe:Milk;price:3.23;type:Food;expiration:1/25/2016##"
@@ -44,4 +46,17 @@ public class ItemParserTest {
         itemParser.parseStringIntoItem(rawBrokenSingleItem);
     }
 
+    @Test
+    public void findKeyValuePairsInRawItemDataTest(){
+        Integer expected = 4;
+        Integer actual = itemParser.findKeyValuePairsInRawItemData(rawSingleItem).size();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void findKeyValuePairsInRawItemDataTestIrregular(){
+        Integer expected = 4;
+        Integer actual = itemParser.findKeyValuePairsInRawItemData(rawSingleItemIrregularSeperatorSample).size();
+        assertEquals(expected, actual);
+    }
 }
