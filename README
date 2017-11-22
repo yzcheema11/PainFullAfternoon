@@ -1,4 +1,4 @@
-##WELCOME TO THE HURT LOCKER
+##WELCOME TO THE PainfullAfternoon (Hurtlocker)
 
 By this time you should have been introduced to Java Strings, Exceptions, Unit Testing, and Regex.
 
@@ -29,8 +29,6 @@ YOU ARE NOT ALLOWED to use any Java based string manipulation!!!!!!!!!!!!
 
 You must use regex to detect the patterns and match them.
 
-
-Oh one more thing.... Tariq is kind of petty... so you can blame STELLA and JOCELYN for this.
 
 Its not guranteed that every Key will have a Value, and every Value will have a pair. For instance:
 
