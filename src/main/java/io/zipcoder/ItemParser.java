@@ -5,11 +5,6 @@ import java.util.Arrays;
 
 public class ItemParser {
 
-    /**
-     *
-     * @param rawData
-     * @return
-     */
 
     public ArrayList<String> parseRawDataIntoStringArray(String rawData){
         String stringPattern = "##";
@@ -22,7 +17,7 @@ public class ItemParser {
     }
 
     public ArrayList<String> findKeyValuePairsInRawItemData(String rawItem){
-        String stringPattern = ";";
+        String stringPattern = "[;|^]";
         ArrayList<String> response = splitStringWithRegexPattern(stringPattern , rawItem);
         return response;
     }
