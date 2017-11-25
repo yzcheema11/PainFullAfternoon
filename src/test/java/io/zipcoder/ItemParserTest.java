@@ -10,6 +10,8 @@ import static org.junit.Assert.*;
 
 public class ItemParserTest {
 
+    private String nothing = "";
+
     private String rawSingleItem =    "naMe:Milk;price:3.23;type:Food;expiration:1/25/2016##";
 
     private String rawSingleItemIrregularSeperatorSample = "naMe:MiLK;price:3.23;type:Food^expiration:1/11/2016##";
@@ -35,7 +37,7 @@ public class ItemParserTest {
     }
 
     @Test
-    public void patternMatcherNameTest() throws ItemParseException {
+    public void patternMatcherNameTrueTest() throws ItemParseException {
 
         boolean expected = true;
         boolean actual = itemParser.patternMatcherName(rawBrokenSingleItem);
@@ -44,7 +46,16 @@ public class ItemParserTest {
     }
 
     @Test
-    public void patternMatcherPriceTest() throws ItemParseException {
+    public void patternMatcherNameFalseTest() throws ItemParseException {
+
+        boolean expected = false;
+        boolean actual = itemParser.patternMatcherName(nothing);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void patternMatcherPriceTrueTest() throws ItemParseException {
 
         boolean expected = true;
         boolean actual = itemParser.patternMatcherPrice(rawBrokenSingleItem);
@@ -53,7 +64,16 @@ public class ItemParserTest {
     }
 
     @Test
-    public void patternMatcherTypeTest() throws ItemParseException {
+    public void patternMatcherPriceFalseTest() throws ItemParseException {
+
+        boolean expected = false;
+        boolean actual = itemParser.patternMatcherPrice(nothing);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void patternMatcherTypeTrueTest() throws ItemParseException {
 
         boolean expected = true;
         boolean actual = itemParser.patternMatcherType(rawBrokenSingleItem);
@@ -62,10 +82,28 @@ public class ItemParserTest {
     }
 
     @Test
-    public void patternMatcherExpTest() throws ItemParseException {
+    public void patternMatcherTypeFalseTest() throws ItemParseException {
+
+        boolean expected = false;
+        boolean actual = itemParser.patternMatcherType(nothing);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void patternMatcherExpTrueTest() throws ItemParseException {
 
         boolean expected = true;
         boolean actual = itemParser.patternMatcherExp(rawSingleItem);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void patternMatcherExpFalseTest() throws ItemParseException {
+
+        boolean expected = false;
+        boolean actual = itemParser.patternMatcherExp(nothing);
 
         Assert.assertEquals(expected, actual);
     }
