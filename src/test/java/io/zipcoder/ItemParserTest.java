@@ -35,6 +35,42 @@ public class ItemParserTest {
     }
 
     @Test
+    public void patternMatcherNameTest() throws ItemParseException {
+
+        boolean expected = true;
+        boolean actual = itemParser.patternMatcherName(rawBrokenSingleItem);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void patternMatcherPriceTest() throws ItemParseException {
+
+        boolean expected = true;
+        boolean actual = itemParser.patternMatcherPrice(rawBrokenSingleItem);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void patternMatcherTypeTest() throws ItemParseException {
+
+        boolean expected = true;
+        boolean actual = itemParser.patternMatcherType(rawBrokenSingleItem);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void patternMatcherExpTest() throws ItemParseException {
+
+        boolean expected = true;
+        boolean actual = itemParser.patternMatcherExp(rawSingleItem);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
     public void parseStringIntoItemTest() throws ItemParseException{
         Item expected = new Item("milk", 3.23, "food","1/25/2016");
         Item actual = itemParser.parseStringIntoItem(rawSingleItem);
