@@ -45,19 +45,39 @@ public class ItemParser {
         return matchItemExp.find();
     }
 
+    public String getStringValuePair(String rawItem){
+        ArrayList<String> tofind = findKeyValuePairsInRawItemData(rawItem);
+        String toReturn = tofind.get(0).toLowerCase();
+        return toReturn;
+    }
 
+    public String getStringValueandItem(String rawItem) throws ItemParseException {
+        ArrayList<String> name = new ArrayList<String>();
+        if(patternMatcherName(rawItem)){
+            ArrayList<String>keyValue =findKeyValuePairsInRawItemData(rawItem);
+            name = splitStringWithRegexPattern(":", keyValue.get(0));
+        }
+        return name.get(1).toLowerCase();
+    }
 
-
-    public Item parseStringIntoItem(String rawItem) throws ItemParseException {
-
-        //ArrayList<String> valuePairs = findKeyValuePairsInRawItemData(rawItem);
-
-
-        Pattern itemSplit = Pattern.compile(":");
+    private String compareMatches(Pattern patern, String keyField) {
 
 
         return null;
+
     }
+
+
+
+
+//    public Item parseStringIntoItem(String rawItem) throws ItemParseException {
+//
+//        //ArrayList<String> valuePairs = findKeyValuePairsInRawItemData(rawItem);
+//
+//
+//
+//        return null;
+//    }
 
         //        String itemName = itemNamePattern;
 //        itemName = compareMatch(itemNamePattern,itemName);

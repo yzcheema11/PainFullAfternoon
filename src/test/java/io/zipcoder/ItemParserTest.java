@@ -133,4 +133,22 @@ public class ItemParserTest {
         Integer actual = itemParser.findKeyValuePairsInRawItemData(rawSingleItemIrregularSeperatorSample).size();
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void getStringValuePairTest() {
+
+
+        String expected = "name:milk";
+
+        String actual = itemParser.getStringValuePair(rawSingleItem);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getStringValueandItemTest() throws ItemParseException {
+        String expected = "milk";
+        String actual = itemParser.getStringValueandItem(rawSingleItem);
+        Assert.assertEquals(expected, actual);
+    }
 }
